@@ -5,7 +5,6 @@ import (
 	"crypto/tls"
 	"net/http"
 	"os"
-	"time"
 
 	"github.com/avila-r/localstack/dynamo/posts"
 	"github.com/aws/aws-sdk-go-v2/config"
@@ -18,15 +17,6 @@ var (
 )
 
 func main() {
-	_ = posts.Post{
-		Id:                  "1",
-		Title:               "my post",
-		Content:             "post content",
-		Status:              "posted",
-		CreateTimestamp:     time.Now().Format("2006-01-02T15:04:05.000Z"),
-		LastUpdateTimestamp: time.Now().Format("2006-01-02T15:04:05.000Z"),
-	}
-
 	profile := os.Getenv("AWS_PROFILE")
 	if profile == "" {
 		profile = "default"
